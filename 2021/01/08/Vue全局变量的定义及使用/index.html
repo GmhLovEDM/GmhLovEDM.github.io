@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="定义原理 设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 1.在src&#x2F;api里新建全局变量模块文件:global_variable.js  2.在新建好的文件里输入你想要的全局变量 12345678910111213&#x2F;&#x2F;什么类">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/GmhLovEDM/bolgImage/blob/main/image-20210108213607411.png?raw=true">
+<meta property="og:image" content="https://github.com/GmhLovEDM/bolgImage/blob/main/image1.png?raw=true">
 <meta property="article:published_time" content="2021-01-08T13:32:39.000Z">
-<meta property="article:modified_time" content="2021-01-08T14:24:16.249Z">
+<meta property="article:modified_time" content="2021-01-08T14:36:11.150Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/GmhLovEDM/bolgImage/blob/main/image-20210108213607411.png?raw=true">
+<meta name="twitter:image" content="https://github.com/GmhLovEDM/bolgImage/blob/main/image1.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -177,7 +177,7 @@
         <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>原理</strong></p>
 <p>设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。</p>
 <p>1.在src/api里新建全局变量模块文件:global_variable.js</p>
-<p><img src="https://github.com/GmhLovEDM/bolgImage/blob/main/image-20210108213607411.png?raw=true"></p>
+<p><img src="https://github.com/GmhLovEDM/bolgImage/blob/main/image1.png?raw=true"></p>
 <p>2.在新建好的文件里输入你想要的全局变量</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//什么类型的都可以定义</span></span><br><span class="line"><span class="keyword">const</span> xxx = <span class="literal">false</span></span><br><span class="line"><span class="keyword">const</span> xxxx = [<span class="string">&quot;G&quot;</span>,<span class="string">&quot;M&quot;</span>,<span class="string">&quot;H&quot;</span>]</span><br><span class="line"><span class="keyword">const</span> xxxxx = Gmh</span><br><span class="line"><span class="keyword">const</span> xxxxxx = <span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  xxx,</span><br><span class="line">  xxxx,</span><br><span class="line">  xxxxx,</span><br><span class="line">  xxxxxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>3.在main.js中<strong>使用Vue.prototype挂载到vue实例上面</strong>或者在其它地方需要使用时，引入该模块便可。</p>
