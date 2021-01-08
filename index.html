@@ -150,6 +150,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue全局变量的定义及使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/08/Vue%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/">Vue全局变量的定义及使用</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/08/Vue%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-01-08T13:32:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>原理</strong></p>
+<p>设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。</p>
+<p>1.在src/api里新建全局变量模块文件:global_variable.js</p>
+<p><img src="https://raw.githubusercontent.com/GmhLovEDM/GmhLovEDM.github.io/master/image-20210108213607411.png"></p>
+<p>2.在新建好的文件里输入你想要的全局变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//什么类型的都可以定义</span></span><br><span class="line"><span class="keyword">const</span> xxx = <span class="literal">false</span></span><br><span class="line"><span class="keyword">const</span> xxxx = [<span class="string">&quot;G&quot;</span>,<span class="string">&quot;M&quot;</span>,<span class="string">&quot;H&quot;</span>]</span><br><span class="line"><span class="keyword">const</span> xxxxx = Gmh</span><br><span class="line"><span class="keyword">const</span> xxxxxx = <span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  xxx,</span><br><span class="line">  xxxx,</span><br><span class="line">  xxxxx,</span><br><span class="line">  xxxxxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>3.在main.js中<strong>使用Vue.prototype挂载到vue实例上面</strong>或者在其它地方需要使用时，引入该模块便可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js中：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> globalVariable <span class="keyword">from</span> <span class="string">&#x27;./api/global_variable.js&#x27;</span> <span class="comment">// 先导包</span></span><br><span class="line"></span><br><span class="line">Vue.prototype.GLOBAL = globalVariable<span class="comment">// 使用Vue.prototype挂载到vue实例上面</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用时：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.GLOBAL.xxx <span class="comment">//直接调用即可</span></span><br></pre></td></tr></table></figure>
+<p><strong>Tips:如果挂载之后，在需要引用全局变量的模块处，不需再导入全局变量模块，而是直接用<code>this</code>就可以引用了</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/08/Vue%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-关于Vant插件依赖冲突的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
