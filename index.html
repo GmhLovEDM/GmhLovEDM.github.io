@@ -144,6 +144,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue父组件调用子组件时子组件页面首次打开时页面未渲染的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/14/Vue%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E6%97%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%A1%B5%E9%9D%A2%E9%A6%96%E6%AC%A1%E6%89%93%E5%BC%80%E6%97%B6%E9%A1%B5%E9%9D%A2%E6%9C%AA%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Vue父组件调用子组件时子组件页面首次打开时页面未渲染的解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/14/Vue%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E6%97%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%A1%B5%E9%9D%A2%E9%A6%96%E6%AC%A1%E6%89%93%E5%BC%80%E6%97%B6%E9%A1%B5%E9%9D%A2%E6%9C%AA%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-01-14T15:04:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="要实现的功能"><a href="#要实现的功能" class="headerlink" title="要实现的功能"></a>要实现的功能</h2><p>在文本框输入一个名字，将文本框的数据添加到全局变量后，按回车键弹出HomeTopSearch子组件，并且在子组件里判断全局变量里的数据</p>
+<h3 id="父组件："><a href="#父组件：" class="headerlink" title="父组件："></a>父组件：</h3><p><strong>HTML:</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;Home_Top_Input&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入召唤师名&quot;</span> @<span class="attr">keyup.enter</span>=<span class="string">&quot;openSearch()&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;SearchContent&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">van-popup</span> <span class="attr">v-model</span>=<span class="string">&quot;showSearch&quot;</span> <span class="attr">bind:close</span>=<span class="string">&quot;onClose&quot;</span> <span class="attr">position</span>=<span class="string">&quot;bottom&quot;</span> <span class="attr">round</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">HomeTopSearch</span> <span class="attr">ref</span>=<span class="string">&quot;HomeTopSearchIF&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">HomeTopSearch</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">van-popup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Script:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">openSearch</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;按下回车了&quot;</span>);</span><br><span class="line">  <span class="comment">//调用弹出层</span></span><br><span class="line">  <span class="built_in">this</span>.showSearch = !<span class="built_in">this</span>.showSearch;</span><br><span class="line">  <span class="comment">//判断输入的内容</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">this</span>.SearchContent == <span class="string">&quot;GmhLovEDM&quot;</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;输入的内容是：&quot;</span>+<span class="built_in">this</span>.SearchContent);</span><br><span class="line">    <span class="comment">//把搜索的数据添加到全局变量，然后在弹出层判断</span></span><br><span class="line">    <span class="built_in">this</span>.GLOBAL.SearchContent = <span class="built_in">this</span>.SearchContent</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;全局变量里的数据：&quot;</span>+<span class="built_in">this</span>.GLOBAL.SearchContent);</span><br><span class="line">    <span class="comment">//调用子类运行判断方法</span></span><br><span class="line">    <span class="built_in">this</span>.$refs.HomeTopSearchIF.ContentValueSearch();</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;输入的内容是：其他&quot;</span>);</span><br><span class="line">    <span class="comment">//把搜索的数据添加到全局变量，然后在弹出层判断</span></span><br><span class="line">    <span class="built_in">this</span>.GLOBAL.SearchContent = <span class="built_in">this</span>.SearchContent</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;全局变量里的数据：&quot;</span>+<span class="built_in">this</span>.GLOBAL.SearchContent);</span><br><span class="line">    <span class="comment">//调用子类运行判断方法</span></span><br><span class="line">    <span class="built_in">this</span>.$refs.HomeTopSearchIF.ContentValueSearch();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子组件："><a href="#子组件：" class="headerlink" title="子组件："></a>子组件：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">ContentValueSearch</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">this</span>.GLOBAL.SearchContent == <span class="string">&quot;GmhLovEDM&quot;</span>)&#123;</span><br><span class="line">    <span class="comment">//显示DIV1里的东西（GmhLovEDM里的东西）</span></span><br><span class="line">    <span class="built_in">this</span>.showDiv2 = <span class="literal">false</span></span><br><span class="line">    <span class="built_in">this</span>.showDiv1 = <span class="literal">true</span></span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//显示DIV2里的东西（不是GmhLovEDM的东西）</span></span><br><span class="line">    <span class="built_in">this</span>.showDiv1 = <span class="literal">false</span></span><br><span class="line">    <span class="built_in">this</span>.showDiv2 = <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第一次运行时报错"><a href="#第一次运行时报错" class="headerlink" title="第一次运行时报错"></a>第一次运行时报错</h2><p><strong>错误内容：调用不到子组件的ContentValueSearch方法</strong></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p><strong>当第一次在文本框输入内容时按回车，因为子组件内的内容还未渲染完毕，所以当按下回车时，弹出的页面里没有任何东西</strong></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>在调用子组件的方法时，加入$nextTick，这样调用子组件里的方法时，会先等待子组件渲染完毕再调用</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">     <span class="built_in">this</span>.$refs.HomeTopSearchIF.ContentValueSearch();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>1.<a target="_blank" rel="noopener" href="https://www.cnblogs.com/jin-zhe/p/9985436.html">https://www.cnblogs.com/jin-zhe/p/9985436.html</a></p>
+<p>2.<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a7550c0e164f">https://www.jianshu.com/p/a7550c0e164f</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/14/Vue%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E6%97%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%A1%B5%E9%9D%A2%E9%A6%96%E6%AC%A1%E6%89%93%E5%BC%80%E6%97%B6%E9%A1%B5%E9%9D%A2%E6%9C%AA%E6%B8%B2%E6%9F%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-关于新建Vue项目下载速度慢的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
