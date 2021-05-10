@@ -144,6 +144,127 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于WebSocket的实现及Node-JS代码参考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/30/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode-JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/">关于WebSocket的实现及Node.JS代码参考</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/30/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode-JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/" class="archive-article-date">
+  	<time datetime="2021-04-30T07:17:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代码参考"><a href="#代码参考" class="headerlink" title="代码参考"></a>代码参考</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/1.%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96.png"></p>
+<h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/2.%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1.png"></p>
+<h3 id="创建服务器"><a href="#创建服务器" class="headerlink" title="创建服务器"></a>创建服务器</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/3.%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
+<h3 id="监听端口"><a href="#监听端口" class="headerlink" title="监听端口"></a>监听端口</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/4.%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3.png"></p>
+<h3 id="创建WebSocket服务器"><a href="#创建WebSocket服务器" class="headerlink" title="创建WebSocket服务器"></a>创建WebSocket服务器</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/5.%E5%88%9B%E5%BB%BAWebSocket%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
+<h3 id="允许跨域"><a href="#允许跨域" class="headerlink" title="允许跨域"></a>允许跨域</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/6.%E5%85%81%E8%AE%B8%E8%B7%A8%E5%9F%9F.png"></p>
+<h3 id="WebSocket建立连接"><a href="#WebSocket建立连接" class="headerlink" title="WebSocket建立连接"></a>WebSocket建立连接</h3><p><img src="https://blog-1305701475.cos.ap-beijing.myqcloud.com/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode.JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/7.WebSocket%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5.png"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/30/%E5%85%B3%E4%BA%8EWebSocket%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8ANode-JS%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>demox</p>
+<p>123123123</p>
+<p>s</p>
+<p>的符号啥快递纺纱机的封杀</p>
+<p>法沙发沙发</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/30/demo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SpringBoot-Vue实现前后端分离" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -473,7 +594,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/08/Vue%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/">Vue全局变量的定义及使用</a>
+      <a class="article-title" href="/2021/01/08/Vue%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E4%BD%BF%E7%94%A8/">Vue全局变量的定义及使用1</a>
     </h1>
   
 
@@ -726,9 +847,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容111</p>
 <hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容222</p>
 <hr>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
 
@@ -773,77 +894,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/01/08/hello-world/" class="archive-article-date">
-  	<time datetime="2021-01-08T08:12:44.914Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/08/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
