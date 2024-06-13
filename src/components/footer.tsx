@@ -15,7 +15,7 @@ export const Footer: FC = () => {
     <footer className="pt-6 pb-16 md:pb-24">
       <ReadableArea className="flex justify-between">
         <p className="text-foreground-secondary text-center md:text-left text-sm font-light">
-          © {formatDate(Date.now(), "yyyy")} Cyandev
+          © {formatDate(Date.now(), "yyyy")} GmhLovEDM
         </p>
         <FooterSlotPortal />
       </ReadableArea>

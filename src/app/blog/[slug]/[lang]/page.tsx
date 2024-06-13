@@ -37,7 +37,7 @@ function normalizeLang(lang: string | undefined): string | undefined {
 
 function urlForParams({ slug, lang }: Params): string {
   const normalizedLang = normalizeLang(lang);
-  return `https://cyandev.app/blog/${slug}${
+  return `https://GmhLovEDM.app/blog/${slug}${
     normalizedLang ? `/${normalizedLang}` : ""
   }`;
 }
@@ -56,7 +56,7 @@ export async function generateMetadata({
       title: metadata.title,
       description: metadata.description,
       ogUrl: urlForParams({ slug, lang }),
-      ogImage: `https://cyandev.app/api/og?title=${encodeURIComponent(
+      ogImage: `https://GmhLovEDM.app/api/og?title=${encodeURIComponent(
         metadata.title
       )}`,
     });

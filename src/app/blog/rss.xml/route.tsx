@@ -10,20 +10,20 @@ export const dynamic = "force-static";
 
 export async function GET() {
   const feed = new Feed({
-    title: "Cyandev's Blog",
-    description: "Blog posts from Cyandev with ❤️",
-    id: "https://cyandev.app/blog",
-    link: "https://cyandev.app/blog",
-    image: "https://cyandev.app/twitter-cards/common.png",
-    favicon: "https://cyandev.app/favicon.ico",
-    copyright: "All rights reserved 2023, Cyandev",
+    title: "GmhLovEDM's Blog",
+    description: "Blog posts from GmhLovEDM with ❤️",
+    id: "https://GmhLovEDM.app/blog",
+    link: "https://GmhLovEDM.app/blog",
+    image: "https://GmhLovEDM.app/twitter-cards/common.png",
+    favicon: "https://GmhLovEDM.app/favicon.ico",
+    copyright: "All rights reserved 2023, GmhLovEDM",
   });
 
   const posts = await fetchOrderedPosts();
 
   for (const post of posts) {
     const metadata = post.metadata;
-    const link = `https://cyandev.app/blog/${post.slug}`;
+    const link = `https://GmhLovEDM.app/blog/${post.slug}`;
 
     const html = await unified()
       .use(remarkParse)

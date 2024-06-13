@@ -79,7 +79,7 @@ export function BlogPost(props: BlogPostProps) {
           Tweet
         </ShareButton>{" "}
         to share it with others or{" "}
-        <ShareButton url="https://github.com/unixzii/cyandev.io/issues/new">
+        <ShareButton url="https://github.com/unixzii/GmhLovEDM.io/issues/new">
           open an issue
         </ShareButton>{" "}
         to discuss with me!

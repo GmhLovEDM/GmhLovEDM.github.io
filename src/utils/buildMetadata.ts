@@ -10,7 +10,7 @@ type Metadata = {
 export default function buildMetadata(metadata: Metadata): NextMetadata {
   const { title: routeTitle, description, ogImage, ogUrl } = metadata;
 
-  const title = routeTitle ? `${routeTitle} | Cyandev` : "Cyandev";
+  const title = routeTitle ? `${routeTitle} | GmhLovEDM` : "GmhLovEDM";
 
   return {
     title,

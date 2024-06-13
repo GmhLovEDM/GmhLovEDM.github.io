@@ -5,9 +5,9 @@ import { BlogIndex } from "./BlogIndex";
 
 export const metadata = buildMetadata({
   title: "Blog",
-  description: "Blog posts from Cyandev with ❤️",
-  ogUrl: "https://cyandev.app/blog",
-  ogImage: "https://cyandev.app/twitter-cards/common.png",
+  description: "Blog posts from GmhLovEDM with ❤️",
+  ogUrl: "https://GmhLovEDM.app/blog",
+  ogImage: "https://GmhLovEDM.app/twitter-cards/common.png",
 });
 
 export default async function Page() {

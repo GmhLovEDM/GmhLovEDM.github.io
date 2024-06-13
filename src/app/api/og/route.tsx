@@ -59,7 +59,7 @@ export async function GET(req: Request) {
             }}
           >
             <span>{"//"}</span>
-            <span style={{ color: "#fff" }}>Cyandev</span>
+            <span style={{ color: "#fff" }}>GmhLovEDM</span>
             <span>.app</span>
           </div>
         </div>

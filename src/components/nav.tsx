@@ -38,7 +38,7 @@ export const NavBar: FC = () => {
         })}
       >
         <ReadableArea className="flex gap-12">
-          <a className="font-bold">Cyandev</a>
+          <a className="font-bold">GmhLovEDM</a>
           <div className="flex gap-6 font-light text-foreground-secondary">
             <Link className="hover:text-foreground transition-colors" href="/">
               Home
