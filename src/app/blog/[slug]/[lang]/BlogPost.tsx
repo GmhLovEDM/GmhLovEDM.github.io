@@ -73,13 +73,13 @@ export function BlogPost(props: BlogPostProps) {
         <ShareButton
           url="https://twitter.com/intent/tweet"
           params={{
-            text: `I'd like to share this post from @unixzii:\n${shareUrl}`,
+            text: `I'd like to share this post from @GmhLovEDM:\n${shareUrl}`,
           }}
         >
           Tweet
         </ShareButton>{" "}
         to share it with others or{" "}
-        <ShareButton url="https://github.com/unixzii/GmhLovEDM.io/issues/new">
+        <ShareButton url="https://github.com/gmhlovedm/GmhLovEDM.github.io/issues">
           open an issue
         </ShareButton>{" "}
         to discuss with me!

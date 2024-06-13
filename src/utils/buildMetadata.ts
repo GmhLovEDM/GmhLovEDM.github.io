@@ -25,7 +25,7 @@ export default function buildMetadata(metadata: Metadata): NextMetadata {
       title,
       description,
       images: ogImage,
-      site: "@unixzii",
+      site: "@GmhLovEDM",
       card: ogImage ? "summary_large_image" : "summary",
     },
     viewport: {
