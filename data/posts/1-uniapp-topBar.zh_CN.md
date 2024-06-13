@@ -33,7 +33,7 @@ uniapp 提供了两个 API：
 - [`getSystemInfoSync()`](http://uniapp.dcloud.io/api/system/info?id=getsysteminfosync)
   > 代码示例：
   >
-  > ```typescript
+  > ``` typescript
   > const { statusBarHeight } = uni.getSystemInfoSync();
   > ```
 
@@ -42,7 +42,7 @@ uniapp 提供了两个 API：
 - [`getMenuButtonBoundingClientRect()`](http://uniapp.dcloud.io/api/ui/menuButton?id=getmenubuttonboundingclientrect)
   > 代码示例：
   >
-  > ```typescript
+  > ``` typescript
   > const { width, height, top } = uni.getMenuButtonBoundingClientRect();
   > ```
 
@@ -52,7 +52,7 @@ uniapp 提供了两个 API：
 
 #### 状态栏高度
 
-```typescript
+``` typescript
 // 获取状态栏高度
 const { statusBarHeight, windowHeight, screenHeight } = uni.getSystemInfoSync();
 heightAttribute.statusBarHeight = statusBarHeight;
@@ -62,7 +62,7 @@ heightAttribute.statusBarHeight = statusBarHeight;
 
 接下来，获取胶囊按钮的布局位置信息。
 
-```typescript
+``` typescript
 // 获取胶囊按钮信息
 const { width, height, top } = uni.getMenuButtonBoundingClientRect();
 heightAttribute.menuButtonInfo = { width, height, top };
@@ -75,14 +75,14 @@ const topDistance = heightAttribute.menuButtonInfo.top - heightAttribute.statusB
 
 有了状态栏高度和胶囊按钮的位置信息后，我们可以计算导航栏的高度。胶囊按钮相对于状态栏的上边距是通过胶囊按钮的顶部位置 top 减去状态栏高度 statusBarHeight 得到的。
 
-```typescript
+``` typescript
 // 计算导航栏高度
 heightAttribute.musicheadHeight = heightAttribute.menuButtonInfo.height + topDistance * 2;
 ```
 
 ### 计算高度代码示例
 
-```typescript
+``` typescript
 onReady(() => {
   // #ifdef  MP-WEIXIN
     // 获取状态栏高度
@@ -121,7 +121,7 @@ onReady(() => {
 
 在 `@/components/ccic-topbar` 中创建 `index.vue`
 
-```vue
+``` vue
 <template>
   <view class="page"></view>
 </template>
@@ -135,7 +135,7 @@ onReady(() => {
 
 搭出 `状态栏容器` 和 `导航栏容器`
 
-```vue
+``` vue
 <view class="page">
     <!-- 状态栏高度 -->
     <view class="top-status"></view>
